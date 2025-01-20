@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useActor } from "@xstate/react";
+import { useSelector } from "@xstate/react";
 import { Box } from "components/ui/Box";
 import { Button } from "components/ui/Button";
 import { Context } from "features/game/GameProvider";
@@ -48,6 +48,7 @@ import summerIcon from "assets/icons/summer.webp";
 import autumnIcon from "assets/icons/autumn.webp";
 import winterIcon from "assets/icons/winter.webp";
 import { SeedRequirements } from "components/ui/layouts/SeedRequirements";
+import { MachineState } from "features/game/lib/gameMachine";
 
 export const SEASON_ICONS: Record<TemperateSeasonName, string> = {
   spring: springIcon,
@@ -56,17 +57,15 @@ export const SEASON_ICONS: Record<TemperateSeasonName, string> = {
   winter: winterIcon,
 };
 
+const _state = (state: MachineState) => state.context.state;
+
 export const SeasonalSeeds: React.FC = () => {
   const [selectedName, setSelectedName] = useState<SeedName>("Sunflower Seed");
   const [confirmBuyModal, showConfirmBuyModal] = useState(false);
 
   const selected = SEEDS()[selectedName];
   const { gameService, shortcutItem } = useContext(Context);
-  const [
-    {
-      context: { state },
-    },
-  ] = useActor(gameService);
+  const state = useSelector(gameService, _state);
   const { t } = useAppTranslation();
 
   const { inventory } = state;
