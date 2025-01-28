@@ -455,6 +455,9 @@ export const KNOWN_IDS: Record<InventoryItemName, number> = {
   "Cow Skull": 750,
   Horseshoe: 751,
   "Trade Point": 752,
+  "Winds of Change Banner": 753,
+  Timeshard: 754,
+  "Ancient Clock": 755,
 
   "Australian Flag": 801,
   "Belgian Flag": 802,
@@ -756,6 +759,14 @@ export const KNOWN_IDS: Record<InventoryItemName, number> = {
   "Battle Fish": 1538,
   "Lemon Shark": 1539,
   "Longhorn Cowfish": 1540,
+  Porgy: 1541,
+  Muskellunge: 1542,
+  Trout: 1543,
+  Walleye: 1544,
+  Weakfish: 1545,
+  "Rock Blackfish": 1546,
+  Cobia: 1547,
+  Tilapia: 1548,
 
   "White Festive Fox": 2001,
   Rug: 2002,
@@ -942,6 +953,22 @@ export const KNOWN_IDS: Record<InventoryItemName, number> = {
   "Thermal Stone": 2181,
   "Protective Pesticide": 2182,
   "Volcano Gnome": 2183,
+  // Winds of Change
+  Kite: 2184,
+  "Acorn House": 2185,
+  "Spring Duckling": 2186,
+  Igloo: 2187,
+  "Ugly Duckling": 2188,
+  "Lake Rug": 2189,
+  Hammock: 2190,
+  Mammoth: 2191,
+  "Cup of Chocolate": 2192,
+  "Golden Sheep": 2193,
+  "Barn Blueprint": 2194,
+  "Mama Duck": 2195,
+  "Summer Duckling": 2196,
+  "Autumn Duckling": 2197,
+  "Winter Duckling": 2198,
 };
 
 // The reverse of above
