@@ -8,10 +8,10 @@ import { useSelector } from "@xstate/react";
 import { MachineState } from "features/game/lib/gameMachine";
 
 import {
-  getCurrentSeason,
-  getSeasonalBanner,
-  SEASONS,
-} from "features/game/types/seasons";
+  getCurrentChapter,
+  getChapterBanner,
+  CHAPTERS,
+} from "features/game/types/chapters";
 import { getSeasonWeek } from "lib/utils/getSeasonWeek";
 import { getBumpkinLevel } from "features/game/lib/level";
 import { TimerDisplay } from "features/retreat/components/auctioneer/AuctionDetails";
@@ -22,7 +22,7 @@ const _level = (state: MachineState) =>
   getBumpkinLevel(state.context.state.bumpkin.experience);
 
 const _hasBanner = (state: MachineState) =>
-  state.context.state.inventory[getSeasonalBanner()];
+  state.context.state.inventory[getChapterBanner()];
 
 export const SeasonBannerCountdown: React.FC = () => {
   const { gameService } = useContext(Context);
@@ -30,11 +30,11 @@ export const SeasonBannerCountdown: React.FC = () => {
   const hasBanner = useSelector(gameService, _hasBanner);
   const { openModal } = useContext(ModalContext);
 
-  const season = getCurrentSeason();
+  const season = getCurrentChapter();
   const seasonWeek = getSeasonWeek();
 
   const offerEndsAt =
-    SEASONS[season].startDate.getTime() + 7 * 24 * 60 * 60 * 1000;
+    CHAPTERS[season].startDate.getTime() + 7 * 24 * 60 * 60 * 1000;
 
   const end = useCountdown(offerEndsAt);
 

@@ -14,7 +14,7 @@ import { useAppTranslation } from "lib/i18n/useAppTranslations";
 import { Loading } from "features/auth/components";
 import { BumpkinItem, ITEM_IDS } from "features/game/types/bumpkin";
 import { getKeys } from "features/game/types/decorations";
-import { SeasonName, SEASONS } from "features/game/types/seasons";
+import { ChapterName, CHAPTERS } from "features/game/types/chapters";
 import { ButtonPanel, InnerPanel, OuterPanel } from "components/ui/Panel";
 import { ITEM_DETAILS } from "features/game/types/images";
 import { getImageUrl } from "lib/utils/getImageURLS";
@@ -48,9 +48,9 @@ function getSeasonalAuctions({
   season,
 }: {
   auctions: Auction[];
-  season: SeasonName;
+  season: ChapterName;
 }) {
-  const { startDate, endDate } = SEASONS[season];
+  const { startDate, endDate } = CHAPTERS[season];
 
   // Aggregate supplies
   let details: AuctionItems = auctions.reduce((acc, auction) => {
@@ -345,7 +345,7 @@ const Drops: React.FC<{
 interface Props {
   gameState: GameState;
   farmId: number;
-  season: SeasonName;
+  season: ChapterName;
 }
 
 const _rawToken = (state: AuthMachineState) => state.context.user.rawToken;

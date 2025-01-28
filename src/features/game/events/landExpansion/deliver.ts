@@ -11,9 +11,9 @@ import {
 } from "features/game/types/game";
 import { BUMPKIN_GIFTS } from "features/game/types/gifts";
 import {
-  getCurrentSeason,
-  getSeasonalTicket,
-} from "features/game/types/seasons";
+  getCurrentChapter,
+  getChapterTicket,
+} from "features/game/types/chapters";
 import { NPCName } from "lib/npcs";
 import { getBumpkinHoliday } from "lib/utils/getSeasonWeek";
 import { isWearableActive } from "features/game/lib/wearables";
@@ -63,21 +63,21 @@ export function generateDeliveryTickets({
   }
 
   if (
-    getCurrentSeason() === "Bull Run" &&
+    getCurrentChapter() === "Bull Run" &&
     isWearableActive({ game, name: "Cowboy Hat" })
   ) {
     amount += 1;
   }
 
   if (
-    getCurrentSeason() === "Bull Run" &&
+    getCurrentChapter() === "Bull Run" &&
     isWearableActive({ game, name: "Cowboy Shirt" })
   ) {
     amount += 1;
   }
 
   if (
-    getCurrentSeason() === "Bull Run" &&
+    getCurrentChapter() === "Bull Run" &&
     isWearableActive({ game, name: "Cowboy Trouser" })
   ) {
     amount += 1;
@@ -458,7 +458,7 @@ export function deliverOrder({
     }
 
     if (tickets > 0) {
-      const seasonalTicket = getSeasonalTicket();
+      const seasonalTicket = getChapterTicket();
 
       const count = game.inventory[seasonalTicket] || new Decimal(0);
       const amount = tickets || new Decimal(0);

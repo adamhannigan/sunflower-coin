@@ -775,7 +775,6 @@ import alienChicken from "assets/sfts/alien_chicken.webp";
 import toxicTuft from "assets/sfts/toxic_tuft.webp";
 import mootant from "assets/sfts/mootant.webp";
 import tradeCake from "assets/food/trade_cake.webp";
-
 import kite from "assets/sfts/kite.webp";
 import acornHouse from "assets/sfts/acorn_house.webp";
 import igloo from "assets/sfts/igloo.webp";
@@ -829,7 +828,7 @@ import { BASIC_DECORATIONS } from "./decorations";
 import { SELLABLE_TREASURE } from "./treasure";
 import { TREASURE_COLLECTIBLE_ITEM } from "./collectibles";
 import { ANIMAL_FOODS } from "./animals";
-import { hasSeasonEnded } from "./seasons";
+import { hasChapterEnded } from "./chapters";
 
 export interface ItemDetails {
   description: string;
@@ -3302,7 +3301,7 @@ export const ITEM_DETAILS: Items = {
   },
   "Lemon Shark": {
     image: lemonShark,
-    howToGetItem: hasSeasonEnded("Pharaoh's Treasure")
+    howToGetItem: hasChapterEnded("Pharaoh's Treasure")
       ? [translate("howToGetThisItem.lemonShark")]
       : [translate("ocean.fishing"), translate("beach.fishing")],
     itemType: "collectible",
@@ -3311,7 +3310,7 @@ export const ITEM_DETAILS: Items = {
   },
   "Longhorn Cowfish": {
     image: longhornCowfish,
-    howToGetItem: hasSeasonEnded("Bull Run")
+    howToGetItem: hasChapterEnded("Bull Run")
       ? [translate("howToGetThisItem.longhornCowfish")]
       : [translate("ocean.fishing"), translate("beach.fishing")],
     itemType: "collectible",

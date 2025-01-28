@@ -40,7 +40,7 @@ import {
 import { TreasureToolName, WorkbenchToolName } from "./tools";
 import { ConversationName } from "./announcements";
 import { NPCName } from "lib/npcs";
-import { SeasonalBanner, SeasonalTicket } from "./seasons";
+import { ChapterBanner, ChapterTicket } from "./chapters";
 import { Bud } from "./buds";
 import {
   CompostName,
@@ -226,7 +226,7 @@ export type Coupons =
   | "Mark"
   | "Trade Point"
   | Keys
-  | SeasonalTicket
+  | ChapterTicket
   | FactionEmblem;
 
 export type Keys = "Treasure Key" | "Rare Key" | "Luxury Key";
@@ -477,7 +477,7 @@ export type InventoryItemName =
   | RecipeCraftableName
   | SeasonalCollectibleName
   | TradeFood
-  | SeasonalBanner;
+  | ChapterBanner;
 
 export type Inventory = Partial<Record<InventoryItemName, Decimal>>;
 
@@ -1089,7 +1089,7 @@ export type Currency =
   | "Gem"
   | "Crimstone"
   | "Sunstone"
-  | "Seasonal Ticket"
+  | "Chapter Ticket"
   | "Mark";
 
 export type ShopItemBase = {
